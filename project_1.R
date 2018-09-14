@@ -1,45 +1,77 @@
-#### Your Name
-#### Instructor's Name
-#### Date
+#### Fill in lines 3, 4, and 5 below ####
 
+# Your Name: 
+# Instructor's Name: 
+# Date: 
 
-# Some Helpful Functions --------------------------------------------------
+#-----------------------------------------------------------------------#
 
-names(your_data_set_name) # use this to get the column names of your data set,
-                          # for example, names(CRD) will give the names of the
-                          # CRD data set
+# Below is set up for you to import the data into R
+  # Just run each line of code
+  # You should end up with three data sets: CRD, RBD, and FD
 
-head(your_data_set_name, number) # will print the first number (like 5,6,etc.)
-                          # of rows of your data set
+# You then need to use the aov() function to make the ANOVA tables
+  # Reference "Some Helpful Functions" below to write your code
 
-aov(response ~ factors, data = your_data_set_name) # this is the anova function
-                          # so basically what the whole assignement is based on
-                          # don't forget, if you have multiple factors to do
-                          # factor_1 + factor_2 + ...
+#-----------------------------------------------------------------------#
 
-summary(aov_model) # this will put out your anova table, but don't forget to 
-                   # label your anova model (mod.1 <- aov(...)) and then do 
-                   # summary(mod.1)
+#### Some Helpful Functions ####
 
+names(your_data_set_name) 
+      # use this to get the column names of your data set
+      # these names are unique to each data set
+          # you will put these in place of response, treatment, block, ect below
 
+head(your_data_set_name, number) 
+      # will print the first 6 rows of your data set
 
+aov.1=aov(formula=response~factor, data=your_data_set_name) 
+      # this is the ANOVA function: aov()
 
+      # you have to identify formula: 
 
-# Completely Randomized Design --------------------------------------------
+          # Randomized design:      
+              # response~treatment
+          # Block design:           
+              # response~treatment+block
+          # Factorial design:       
+              # reponse~factor1*factor2
 
-CRD <- read.table("https://raw.githubusercontent.com/jsnowynorth/STAT_3500_project_1/master/CRD.csv",
+      # you have to identify data:
+
+          # CRD or RBD or FD
+
+summary(aov.1) 
+      # this will put out your ANOVA table
+
+#-----------------------------------------------------------------------#
+
+# 1) Completely Randomized Design 
+
+CRD <- read.table("https://raw.githubusercontent.com/alleexx12/3500_R1/master/CRD.csv",
                   header = T, sep = ",")
+names(CRD)
 head(CRD)
 
 
-# Randomized Block Design -------------------------------------------------
-RBD <- read.table("https://raw.githubusercontent.com/jsnowynorth/STAT_3500_project_1/master/RBD.csv",
+#-----------------------------------------------------------------------#
+
+# 2) Randomized Block Design 
+RBD <- read.table("https://raw.githubusercontent.com/alleexx12/3500_R1/master/RBD.csv",
                   header = T, sep = ",")
 RBD$block <- as.factor(RBD$block)
+names(RBD)
+head(RBD)
 
 
-# Factorial Design --------------------------------------------------------
+#-----------------------------------------------------------------------#
 
-FD <- read.table("https://raw.githubusercontent.com/jsnowynorth/STAT_3500_project_1/master/FD.csv",
+# 3) Factorial Design 
+
+FD <- read.table("https://raw.githubusercontent.com/alleexx12/3500_R1/master/FD.csv",
                  header = T, sep = ",")
+names(FD)
 head(FD)
+
+
+#-----------------------------------------------------------------------#
