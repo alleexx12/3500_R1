@@ -11,41 +11,35 @@
   # You should end up with three data sets: CRD, RBD, and FD
 
 # You then need to use the aov() function to make the ANOVA tables
-  # Reference "Some Helpful Functions" below to write your code
 
 #-----------------------------------------------------------------------#
 
-#### Some Helpful Functions ####
-    # don't run these lines of code! 
+#### Example ####
 
-names(your_data_set_name) 
-    # use this to get the column names of your data set
-    # these names are unique to each data set
-        # you will put these in place of response, treatment, block, ect below
+data(mtcars)
+names(mtcars) # this prints out the names of the 11 variables
+head(mtcars)  # this prints out the first 6 observations of the data
+mtcars$cyl=factor(mtcars$cyl)
 
-head(your_data_set_name, number) 
-    # will print the first 6 rows of your data set
+# let's say I want to see if 'mpg' can be determined by 'cyl' and 'disp'
 
-aov.1=aov(formula=response~factor, data=your_data_set_name) 
-    # this is the ANOVA function: aov()
+cars.aov=aov(mpg~cyl+disp, data=mtcars)
+summary(cars.aov) # prints out the ANOVA table
+# 'Residuals' is the same thing as 'Error' in the ANOVA table
 
-    # you have to identify formula: 
 
-        # Randomized design:      
-            # response~treatment
-        # Block design:           
-            # response~treatment+block
-        # Factorial design:       
-            # reponse~factor1*factor2
-
-    # you have to identify data:
-
-        # CRD or RBD or FD
-
-summary(aov.1) 
-    # this will put out your ANOVA table
+# if I want to test for two factor factorial design
+cars.aov2=aov(mpg~cyl*disp, data=mtcars)
+summary(cars.aov2)
+# the * runs each factor individually and also the interaction term
+# the interaction is represented with a : in R
 
 #-----------------------------------------------------------------------#
+
+
+
+
+#### Assignment ####
 
 # 1) Completely Randomized Design 
 CRD <- read.table("https://raw.githubusercontent.com/alleexx12/3500_R1/master/CRD.csv",
@@ -73,4 +67,4 @@ names(FD)
 head(FD)
 
 
-#-----------------------------------------------------------------------#
+#-----------------------------------------------------------------------# 
