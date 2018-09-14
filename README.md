@@ -8,14 +8,11 @@ This is your first R assignment.
 Open this once it downloads and open "project_1.R"
 
 3) Save this script somewhere on your computer
-<<<<<<< HEAD
 
 Name it "LASTNAME_FIRSTINITITAL_project_1"
 
 For instance, I would save this script as 
 
-=======
-Name it "LASTNAME_FIRSTINITITAL_project_1"
-For instance, I would save this script as 
->>>>>>> 03accdcf6fedad41bd049b28730809e7c8453f4c
 "OARD_A_project_1"
+
+There are some notes on the script for you to reference to help with the assignment. You can work with friends and ask questions.
