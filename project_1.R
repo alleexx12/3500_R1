@@ -16,7 +16,7 @@
 #-----------------------------------------------------------------------#
 
 #### Some Helpful Functions ####
-    # don't run these lines of code!
+    # don't run these lines of code! 
 
 names(your_data_set_name) 
     # use this to get the column names of your data set
